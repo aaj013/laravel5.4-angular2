@@ -1,9 +1,16 @@
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../zone");
-var timers_1 = require("../common/timers");
 require("./events");
 require("./fs");
+var timers_1 = require("../common/timers");
 var set = 'set';
 var clear = 'clear';
 var _global = typeof window === 'object' && window || typeof self === 'object' && self || global;
@@ -23,7 +30,8 @@ var crypto;
 try {
     crypto = require('crypto');
 }
-catch (err) { }
+catch (err) {
+}
 // TODO(gdi2290): implement a better way to patch these methods
 if (crypto) {
     var nativeRandomBytes_1 = crypto.randomBytes;
@@ -60,7 +68,8 @@ var httpClient;
 try {
     httpClient = require('_http_client');
 }
-catch (err) { }
+catch (err) {
+}
 if (httpClient && httpClient.ClientRequest) {
     var ClientRequest_1 = httpClient.ClientRequest.bind(httpClient);
     httpClient.ClientRequest = function (options, callback) {

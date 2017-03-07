@@ -1,18 +1,20 @@
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var define_property_1 = require("./define-property");
 var utils_1 = require("../common/utils");
+var define_property_1 = require("./define-property");
 function registerElementPatch(_global) {
     if (!utils_1.isBrowser || !('registerElement' in _global.document)) {
         return;
     }
     var _registerElement = document.registerElement;
-    var callbacks = [
-        'createdCallback',
-        'attachedCallback',
-        'detachedCallback',
-        'attributeChangedCallback'
-    ];
+    var callbacks = ['createdCallback', 'attachedCallback', 'detachedCallback', 'attributeChangedCallback'];
     document.registerElement = function (name, opts) {
         if (opts && opts.prototype) {
             callbacks.forEach(function (callback) {
